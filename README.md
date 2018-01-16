@@ -31,7 +31,17 @@ Within the coming weeks I will make the following modules available separately i
 5. Run ```php artisan key:generate```
 6. Run ```php artisan migrate```
 7. Set the webroot of your webserver to the "public" folder
-I highly recommend to use nginx or lighttp. Apache2 uses too much CPU and RAM on the Raspberry PI.
+<br>
+I highly recommend to use nginx or lighttp. Apache2 is using too much CPU and RAM on the Raspberry PI.
+
+## Usage
+
+Homify's routing is fully dynamically. You can use the following URL to access your things:
+
+- ```https://<server_ip>/<thing_name>/<channel>```
+
+For example:
+- ```https://10.10.3.1/Sonos:Play1/on``` 
 
 ## License
 
