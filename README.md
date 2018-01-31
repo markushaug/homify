@@ -18,7 +18,7 @@ The basic edition only supports the ```Exec-Binding```.
 ## Upcomming Modules
 
 Within the coming weeks I will make the following modules available separately in a repository.
-- ```Sonos Binding```
+- <a href="https://github.com/markushaug/homify-sonos">```Sonos Binding```</a>
 - ```RF Binding (433 Mhz)```
 - ```Hue Binding```
 
