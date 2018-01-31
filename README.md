@@ -8,14 +8,14 @@ The basic edition only supports the ```Exec-Binding```.
 - Create or Use Modules to add Things & Bindings to your system
 - Create Devices and define channels (On, Off, Pause, Next, ....)
 
-## Comming soon
+## Coming soon
 
 - WebGUI for central room management
 - Autogeneration of HomeBridge config files
 - Lightweighter backend
 
 
-## Upcomming Modules
+## Upcoming Modules
 
 Within the coming weeks I will make the following modules available separately in a repository.
 - <a href="https://github.com/markushaug/homify-sonos">```Sonos Binding```</a>
