@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "79f830ddbf75e0abfd8a9cf12da5b0fd",
+    "content-hash": "1c8ae2ddd31a8fcd4b6c5a6f975a5948",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1028,6 +1028,43 @@
                 "storage"
             ],
             "time": "2017-08-06T17:41:04+00:00"
+        },
+        {
+            "name": "markushaug/homify-sonos",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markushaug/homify-sonos.git",
+                "reference": "5d1e9b2f45f79e35eb93b75f3b8c3c1c667015c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markushaug/homify-sonos/zipball/5d1e9b2f45f79e35eb93b75f3b8c3c1c667015c5",
+                "reference": "5d1e9b2f45f79e35eb93b75f3b8c3c1c667015c5",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Modules\\Things\\Sonos\\Providers\\SonosServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Modules\\Things\\Sonos\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Markus Haug",
+                    "email": "mh@haugmarkus.de"
+                }
+            ],
+            "time": "2018-02-01 17:36:55"
         },
         {
             "name": "monolog/monolog",
@@ -4300,7 +4337,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "markushaug/homify-sonos": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
