@@ -2,7 +2,7 @@
     "name": "markushaug/homify",
     "description": "Modular home automation system",
     "keywords": ["smarthome", "laravel", "php", "homify", "homebridge", "alexa", "homekit", "modular", "alexa-support"],
-    "license": "CC",
+    "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.0.0",
