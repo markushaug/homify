@@ -14,6 +14,9 @@ The basic edition only supports the ```Exec-Binding```.
 - Autogeneration of HomeBridge config files
 - Lightweighter backend
 
+## Development
+I would appreciate it if you would contribute to this project.
+Do not hesitate to contact me if you are interested. I can give you an introduction to the core and the main concepts of the program. (Intermediate) Laravel skills are desirable.
 
 ## Upcoming Modules
 
