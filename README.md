@@ -25,6 +25,8 @@ Within the coming weeks I will make the following modules available separately i
 - ```RF Binding (433 Mhz)```
 - ```Hue Binding```
 
+The modules can be installed with composer.
+
 ## Installation
 
 1. Clone the repository
