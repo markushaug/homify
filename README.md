@@ -29,13 +29,11 @@ The modules can be installed with composer.
 
 ## Installation
 
-1. Clone the repository
-2. Navigate to the directory
-3. Run ```"composer install"``` (Yes, <a href="https://getcomposer.org/">Composer</a> is required)
-4. Rename the ".env.example" file to ".env" and setup your database & mail settings
-5. Run ```php artisan key:generate```
-6. Run ```php artisan migrate```
-7. Set the webroot of your webserver to the "public" folder
+1. Run ```composer create-project markushaug/homify``` (Yes, <a href="https://getcomposer.org/">Composer</a> is required)
+2. Rename the ".env.example" file to ".env" and setup your database & mail settings
+3. Run ```php artisan key:generate```
+4. Run ```php artisan migrate```
+5. Set the webroot of your webserver to the "public" folder
 <br>
 I highly recommend to use nginx or lighttp. Apache2 is using too much CPU and RAM on the Raspberry PI.
 
