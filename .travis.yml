@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 7
+  - 7.1
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  - LARAVEL_VERSION="~5.5" TESTBENCH_VERSION="~3.5"
+
+before_script:
+ - php artisan clear-compiled
+
+script: vendor/bin/phpunit
+
+sudo: false
