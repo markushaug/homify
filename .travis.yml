@@ -3,5 +3,9 @@ language: php
 php:
   - 7.0
 
+# install:
+  # - composer self-update
+  # - composer install
+
 # before_script:
 # - mkdir -p Modules
