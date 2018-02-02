@@ -2,8 +2,8 @@
 [![PHP7 Compatible](https://img.shields.io/badge/php-7-green.svg?style=flat-square)](https://packagist.org/packages/markushaug/homify)
 
 
-## 🏡 Homify - Modular home automation
-Homify is an module based home automation system with HomeKit support.
+## 🏡 Homify - Modular home automation platform 
+Homify is an module based home automation platform with HomeKit support.
 
 ## Features
 The system is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on architecture and the section on creating your own components ( Coming soon on).
