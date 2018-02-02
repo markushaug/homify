@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/markushaug/homify.svg?branch=master)](https://travis-ci.org/markushaug/homify)
+[![PHP7 Compatible](https://img.shields.io/badge/php-7-green.svg?style=flat-square)](https://packagist.org/packages/markushaug/homify)
+
+
 ## Homify - Modular home automation
 
 Homify is an module based home automation system with HomeKit &amp; Alexa support.
