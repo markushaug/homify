@@ -12,13 +12,13 @@
 */
 
 
-Route::resource('/', 'Views\IndexController');
-
 
 /* Dynamic thing Routes */
 
 Route::get('/{thingName}/{channel}/{input?}', 'Thing\ThingController@touch');
 
 
+Auth::routes();
 
+Route::get('/', 'Views\HomeController@index')->name('home');
 

@@ -1,1 +1,0 @@
-Homify v1.0 - by Markus Haug

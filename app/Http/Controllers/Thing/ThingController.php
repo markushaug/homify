@@ -52,7 +52,7 @@ class ThingController extends Controller
         // Concatenate the name
 
         // $classString = 'Modules\\' . $this->meta->binding . '\\Things\\' . $this->meta->thingType . '\\' . $this->meta->binding;
-        $classString = 'Modules\\Things\\' . $this->meta->binding . '\\Thing\\' . $this->meta->binding;
+        $classString = 'Modules\\' . $this->meta->binding . '\\Thing\\' . $this->meta->binding;
 
         // Instantiate the class.
         $this->thing = new $classString($this->meta);

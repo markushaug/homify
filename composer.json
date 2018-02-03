@@ -6,17 +6,21 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "atnic/laravel-light-bootstrap-dashboard": "^0.2.1",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "nwidart/laravel-modules": "^2.6",
-        "reliese/laravel": "^0.0.13"
+        "markushaug/homify-exec": "dev-master",
+        "markushaug/homify-rfoutlet": "dev-master",
+        "markushaug/homify-sonos": "dev-master",
+        "nwidart/laravel-modules": "^2.6"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "reliese/laravel": "^0.0.13"
     },
     "autoload": {
         "classmap": [

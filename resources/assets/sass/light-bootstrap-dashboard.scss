@@ -1,0 +1,77 @@
+
+// Fonts
+@import url("http://fonts.googleapis.com/css?family=Roboto:400,700,300");
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Bootstrap Select
+@import "node_modules/bootstrap-select/sass/bootstrap-select";
+
+// Bootstrap Switch
+@import "node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch";
+
+// Chartist
+// @import "node_modules/chartist/dist/scss/chartist";
+
+// Animate CSS
+@import "node_modules/animate.css/animate";
+
+// Font Awesome
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// Pixeden Stroke 7 Icon
+@import "node_modules/pixeden-stroke-7-icon/pe-icon-7-stroke/scss/pe-icon-7-stroke";
+
+/*!
+
+ =========================================================
+ * Light Bootstrap Dashboard - v1.3.1.0
+ =========================================================
+
+ * Product Page: http://www.creative-tim.com/product/light-bootstrap-dashboard
+ * Copyright 2017 Creative Tim (http://www.creative-tim.com)
+ * Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE.md)
+
+ =========================================================
+
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+ */
+
+@import "lbd/variables";
+@import "lbd/mixins";
+
+@import "lbd/typography";
+
+// Core CSS
+@import "lbd/misc";
+@import "lbd/sidebar-and-main-panel";
+@import "lbd/buttons";
+@import "lbd/inputs";
+
+@import "lbd/alerts";
+@import "lbd/tables";
+
+@import "lbd/checkbox-radio-switch";
+@import "lbd/navbars";
+@import "lbd/footers";
+
+// Fancy Stuff
+@import "lbd/dropdown";
+@import "lbd/cards";
+@import "lbd/chartist";
+@import "lbd/responsive";
+
+.alert[data-notify="container"] {
+  [data-notify="dismiss"] {
+    top: 50% !important;
+    margin-top: -13px !important;
+  }
+}
+
+div[data-notify="container"]:not(.alert-with-icon) {
+    span[data-notify="icon"] ~ span[data-notify="message"] {
+        margin-left: 45px;
+    }
+}
