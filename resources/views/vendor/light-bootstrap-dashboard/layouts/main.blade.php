@@ -29,7 +29,8 @@
 	@section('scripts')
 	<script src="{{ mix('/js/manifest.js') }}" charset="utf-8"></script>
 	<script src="{{ mix('/js/vendor.js') }}" charset="utf-8"></script>
-	<script src="js/jquery.js" charset="utf-8"></script>
+	<script src="/js/jquery.js" charset="utf-8"></script>
+	<script src="/js/thing.js" charset="utf-8"></script>
 	<script src="{{ mix('/js/light-bootstrap-dashboard.js') }}" charset="utf-8"></script>
 	@show
 	@stack('body')

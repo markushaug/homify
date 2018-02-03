@@ -7,7 +7,7 @@
 <ul id="ListArea">
 
     @foreach ($things as $thing)
-        <li style="cursor: pointer;" onclick="showModal({{ $thing->id }})" id="{{ $thing->id }}"
+        <li style="cursor: pointer;" onclick="toggle({{ $thing }})" id="{{ $thing->id }}"
             data-status="@php if($thing->state == 'ON') { echo 0; } else { echo 1; } @endphp">
             <div class="Text">
                 <h3>{{ $thing->thing }}</h3>

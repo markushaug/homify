@@ -40,6 +40,8 @@ class ThingController extends Controller
         if (!is_null($input)) {
             $this->input = $input;
         }
+        
+        $channel = strtolower($channel);
 
         // Get all the metadata of the thing to be controlled.
         $this->meta = Thing::where('thing', $thingName)->first();
@@ -49,9 +51,6 @@ class ThingController extends Controller
             return 'Thing "' . $thingName . '" not found';
         }
 
-        // Concatenate the name
-
-        // $classString = 'Modules\\' . $this->meta->binding . '\\Things\\' . $this->meta->thingType . '\\' . $this->meta->binding;
         $classString = 'Modules\\' . $this->meta->binding . '\\Thing\\' . $this->meta->binding;
 
         // Instantiate the class.
