@@ -13,7 +13,9 @@ class AlterRoomsTableRoomsname extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('rooms', function (Blueprint $table) {
+            $table->string('roomName',255)->unique();
+        });
     }
 
     /**

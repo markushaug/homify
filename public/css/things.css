@@ -1,0 +1,175 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, div, span, applet, object, iframe,
+h1, h2, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+body #AppArea {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Roboto, Arial, sans-serif;
+    bottom:  0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+}
+body #AppArea, body #AppArea * {
+    box-sizing: border-box;
+}
+body #AppArea .fa {
+    line-height: 0;
+    font-size: 0;
+}
+body #AppArea .fa:before {
+    font-size: 18px;
+    line-height: 20px;
+}
+body #AppArea #ListArea {
+    height: 100%;
+    padding: 100px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+body #AppArea #ListArea:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+body #AppArea #ListArea > li {
+    width: 200px;
+    height: auto;
+    position: relative;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 2px;
+    margin: 35px;
+    /*
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: fixed center center / cover url(https://source.unsplash.com/category/nature/);
+        filter: blur(10px);
+        z-index: -1;
+    }
+    */
+}
+body #AppArea #ListArea > li[data-status="1"] .Bar .Status {
+    background-color: #e74c3c;
+}
+body #AppArea #ListArea > li[data-status="0"] .Bar .Status {
+    background-color: #2ecc71;
+}
+body #AppArea #ListArea > li .Text {
+    margin: 20px;
+}
+body #AppArea #ListArea > li .Text h3 {
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+}
+body #AppArea #ListArea > li .Image {
+    max-width: 40%;
+    margin: 20px auto;
+}
+body #AppArea #ListArea > li .Image img {
+    width: 100%;
+}
+body #AppArea #ListArea > li .Bar {
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 10px 20px;
+}
+body #AppArea #ListArea > li .Bar:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+body #AppArea #ListArea > li .Bar .Status {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin: 5px 0;
+    background-color: #34495e;
+    cursor: pointer;
+}
+body #AppArea #ListArea > li .Bar .Buttons {
+    float: right;
+}
+body #AppArea #ListArea > li .Bar .Buttons > li {
+    float: left;
+    line-height: 30px;
+    height: 30px;
+}
+body #AppArea #ListArea > li .Bar .Buttons > li a, body #AppArea #ListArea > li .Bar .Buttons > li button {
+    cursor: pointer;
+}
+body #AppArea #ListArea > li .Bar .Buttons > li .fa:before {
+    line-height: 30px;
+    font-size: 24px;
+}
+body #AppArea #ListArea > li .Bar .Buttons > li.AddError a {
+    transition: all .3s;
+}
+body #AppArea #ListArea > li .Bar .Buttons > li.AddError a:hover {
+    color: #e74c3c;
+}

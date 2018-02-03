@@ -1,25 +1,39 @@
 @extends('layouts.app')
+@section('content-title', $currentRoom->room )
 
-@section('content-title', 'Home')
 
 @section('content')
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="card">
-      <div class="header">
-        <h4 class="title">Dashboard</h4>
-        {{-- <p class="category">Dashboard</p> --}}
-      </div>      
-      <div class="content">
-        @if (session('status'))
-        <div class="alert alert-success">
-          {{ session('status') }}
-        </div>
-        @endif
+<div id="AppArea">
+<ul id="ListArea">
 
-        You are logged in!
-      </div>
-    </div>
-  </div>
+    @foreach ($things as $thing)
+        <li style="cursor: pointer;" onclick="showModal({{ $thing->id }})" id="{{ $thing->id }}"
+            data-status="@php if($thing->state == 'ON') { echo 0; } else { echo 1; } @endphp">
+            <div class="Text">
+                <h3>{{ $thing->thing }}</h3>
+            </div>
+            <div class="Image">
+               <img
+               @switch($thing->thingType)
+                    @case('Switcher')
+                        @php if($thing->state == 'ON') { echo 'src="/images/ThingTypes/'.$thing->thingType.'_ON.png"'; } else { echo 'src="/images/ThingTypes/'.$thing->thingType.'_OFF.png"'; } @endphp
+                        @break
+                    @case('Speaker')
+                        @php if($thing->state == 'ON') { echo 'src="/images/ThingTypes/'.$thing->thingType.'_ON.png"'; } else { echo 'src="/images/ThingTypes/'.$thing->thingType.'_OFF.png"'; } @endphp
+                        @break
+                    @case('Light')
+                        @php if($thing->state == 'ON') { echo 'src="/images/ThingTypes/'.$thing->thingType.'_ON.png"'; } else { echo 'src="/images/ThingTypes/'.$thing->thingType.'_OFF.png"'; } @endphp
+                        @break
+                    @default
+                        Default case...
+                @endswitch>
+            </div>
+            <div class="Bar">
+                <a title="{{ $thing->status }}" class="Status" title="Status"></a>
+            </div>
+        </li>
+
+    @endforeach
+</ul>
 </div>
 @endsection

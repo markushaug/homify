@@ -4,7 +4,7 @@
 <ul class="nav">
 @foreach ($rooms as $room)
  <li id="{{ $room->id }}" class="active">
-    <a href="{{ route('home') }}">
+    <a href="{{ url('room/'.$room->room) }}">
       <i class="pe-7s-home"></i>
       <p>{{ $room->room }}</p>
     </a>
