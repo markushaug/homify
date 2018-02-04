@@ -12,6 +12,3 @@ before_script:
 
 services:
   - mysql
-
-script:
-- vendor/bin/phpunit
