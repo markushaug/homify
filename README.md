@@ -41,10 +41,10 @@ I highly recommend to use nginx or lighttp. Apache2 is using too much CPU and RA
 ## Usage
 Homify's routing is fully dynamically. You can use the following URL to access your things:
 
-- ```https://<server_ip>/<thing_name>/<channel>```
+- ```https://<server_ip>/thing/<thing_name>/<channel>```
 
 For example:
-- ```https://10.10.3.1/Sonos:Play1/on``` 
+- ```https://10.10.3.1/thing/Sonos:Play1/on``` 
 
 ## License
 

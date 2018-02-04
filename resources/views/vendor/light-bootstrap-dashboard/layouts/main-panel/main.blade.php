@@ -11,6 +11,16 @@
         <a class="navbar-brand" href="#">@yield('content-title', 'Title')</a>
       </div>
       <div class="collapse navbar-collapse">
+
+        <ul class="nav navbar-nav navbar-left">
+        <li>
+            <a href="#myModal" data-toggle="modal">
+              <!-- Item to trigger modal -->
+              <p>Add Thing</p>
+            </a>
+          </li>
+        </ul>
+
         <ul class="nav navbar-nav navbar-right">
           @if (auth()->check())
    
@@ -55,3 +65,4 @@
 
   @include('light-bootstrap-dashboard::layouts.main-panel.footer.main')
 </div>
+

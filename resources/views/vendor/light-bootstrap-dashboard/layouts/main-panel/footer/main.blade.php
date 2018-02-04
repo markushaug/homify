@@ -27,7 +27,7 @@
       @show
     </nav>-->
     <p class="copyright pull-right">
-      &copy; {{ date('Y') . '  ' . strtoupper(config('app.name')) }} 
+      &copy; {{ date('Y') . '  '}} <a href="https://www.haugmarkus.de/">Markus Haug</a> 
     </p>
   </div>
 </footer>

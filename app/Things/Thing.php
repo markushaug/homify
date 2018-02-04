@@ -45,7 +45,7 @@ abstract class Thing
     private $status;
 
     /**
-     * @var input
+     * @var $input
      */
     private $input;
 
@@ -115,7 +115,7 @@ abstract class Thing
     }
 
     /**
-     * @return input
+     * @return $input
      */
     public function getInput(){
         return $this->input;
