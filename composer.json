@@ -6,12 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "atnic/laravel-light-bootstrap-dashboard": "^0.2.1",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "markushaug/homify-module-installer": "dev-master",
-        "nwidart/laravel-modules": "^2.6"
+         "nwidart/laravel-modules": "^2.6",
+        "atnic/laravel-light-bootstrap-dashboard": "^0.2.1",
+        "markushaug/homify-module-installer": "dev-master"
+       
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -43,9 +44,6 @@
     },
     "scripts": {
         "post-root-package-install": [
-            "mkdir Modules",
-            "mkdir Modules/Things",
-            "mkdir Modules/Bindings",
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
