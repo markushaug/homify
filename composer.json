@@ -55,6 +55,7 @@
         ]
     },
     "config": {
+        "minimum-stability": "dev-master",
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
