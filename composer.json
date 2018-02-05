@@ -11,7 +11,7 @@
         "laravel/tinker": "~1.0",
          "nwidart/laravel-modules": "^2.6",
         "atnic/laravel-light-bootstrap-dashboard": "^0.2.1",
-        "markushaug/homify-module-installer": "dev-master"
+        "markushaug/homify-module-installer": "1.0"
        
     },
     "require-dev": {
