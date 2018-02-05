@@ -23,7 +23,8 @@ Homify is built using a modular approach so support for other devices or actions
 1. Run ```composer create-project markushaug/homify``` (Yes, <a href="https://getcomposer.org/">Composer</a> is required)
 2. Setup your database & mail settings in the ```.env``` file
 4. Run ```php artisan migrate```
-5. Set the webroot of your webserver to the "public" folder
+5. Run ```php artisan db:seed```
+6. Set the webroot of your webserver to the ```public``` folder
 <br>
 
 ### Note for Raspberry Pi users
