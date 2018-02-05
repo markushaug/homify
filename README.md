@@ -39,16 +39,16 @@ You can use the following HTTP-GET Request to access your things:
 For example:
 - ```https://10.10.3.1/thing/Sonos:Play1/on``` 
 
+## COMING SOON
+- WebGUI for central room management & device management
+- Tablet View for single rooms
+- HAP-Protocol (HomeKit) integration
+
 ## FAQ / CONTACT / TROUBLESHOOT
 If you run into issues while using Homify or during development of a component, please use one of the following options:
 
 - Use github's issue reporter on the right, so that other people can search these issues too
 - Send me an email <a href="mailto:mh@haugmarkus.de">mh@haugmarkus.de</a> (might take a few days)
-
-
-## COMING SOON
-- WebGUI for central room management & device management
-- HAP-Protocol (HomeKit) integration
 
 ## CONTRIBUTING
 I would appreciate it if you would contribute to this project.
