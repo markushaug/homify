@@ -8,7 +8,8 @@
 Homify is an module based home-automation platform written in PHP (Laravel).
 
 ## DASHBOARD
-<img src="https://imgur.com/YwK44H2">
+![Dashboard](https://i.imgur.com/YwK44H2.png)
+
 
 ## ABOUT HOMIFY
 Homify is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on creating your own plug-in below in this READ.me.
@@ -50,7 +51,7 @@ Ech Plug-in inherits from an Thing-Type (```Light```, ```Switcher```, ```Speaker
 If you are creating an plug-in for homify, you have to inherit from an Thing-Type. Or you create an additional thing-type.
 Each Thing needs an ```<Thing>.php```, ```Create<Thing>.php``` and an ```Update<Thing>.php``` File. You can take on of the existing Plug-ins as template.
 
-<img src="https://imgur.com/2E75QX0">
+![ThingClass](https://i.imgur.com/2E75QX0.png)
 
 ## FAQ / CONTACT / TROUBLESHOOT
 If you run into issues while using Homify or during development of a component, please use one of the following options:
