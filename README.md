@@ -11,7 +11,7 @@ Homify is an module based home-automation platform written in PHP (Laravel).
 <img src="https://github.com/markushaug/homify/blob/master/Dashboard.png">
 
 ## ABOUT HOMIFY
-Homify is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on architecture and the section on creating your own components ( Coming soon on my website ).
+Homify is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on creating your own plug-in below in this READ.me.
 
 ## FEATURED PLUG-INS
 
@@ -43,6 +43,14 @@ For example:
 - WebGUI for central room management & device management
 - Tablet View for single rooms
 - HAP-Protocol (HomeKit) integration
+
+## PLUG-IN DEVELOPMENT
+Ech Plug-in inherits from an Thing-Type (```Light```, ```Switcher```, ```Speaker```, etc.). Each Thing-Type inherits from the abstract thing class. So each thing has the required functions.
+
+If you are creating an plug-in for homify, you have to inherit from an Thing-Type. Or you create an additional thing-type.
+Each Thing needs an ```<Thing>.php```, ```Create<Thing>.php``` and an ```Update<Thing>.php``` File. You can take on of the existing Plug-ins as template.
+
+<img src="https://github.com/markushaug/homify/blob/master/ThingClass.png">
 
 ## FAQ / CONTACT / TROUBLESHOOT
 If you run into issues while using Homify or during development of a component, please use one of the following options:
