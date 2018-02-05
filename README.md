@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/markushaug/homify.svg?branch=master)](https://travis-ci.org/markushaug/homify)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/caf921d27ed94b68b821792bd952fb62)](https://www.codacy.com/app/markushaug/homify?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=markushaug/homify&amp;utm_campaign=Badge_Grade)
 [![PHP7 Compatible](https://img.shields.io/badge/php-7-green.svg?style=flat-square)](https://packagist.org/packages/markushaug/homify)
 [![Source](http://img.shields.io/badge/source-markushaug/homify-green.svg?style=flat-square)](https://github.com/markushaug/homify)
 
