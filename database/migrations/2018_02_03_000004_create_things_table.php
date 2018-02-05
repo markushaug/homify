@@ -18,12 +18,15 @@ class CreateThingsTable extends Migration
             $table->string('thing');
             $table->string('thingType');
             $table->string('binding');
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('default_on');
             $table->string('default_off');
             $table->string('protocol');
-            $table->string('ip');
+            $table->string('ip')->nullable();
+            $table->integer('room_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('room_id')->references('id')->on('rooms');
         });
     }
 
