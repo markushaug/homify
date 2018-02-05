@@ -4,8 +4,11 @@
 [![Source](http://img.shields.io/badge/source-markushaug/homify-green.svg?style=flat-square)](https://github.com/markushaug/homify)
 
 
-# 🏡 Homify
+# Homify 🏡
 Homify is an module based home-automation platform written in PHP (Laravel).
+
+## DASHBOARD
+<img src="https://github.com/markushaug/homify/blob/master/Dashboard.png">
 
 ## ABOUT HOMIFY
 Homify is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on architecture and the section on creating your own components ( Coming soon on my website ).
