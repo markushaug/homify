@@ -21,11 +21,9 @@ I would appreciate it if you would contribute to this project.
 Do not hesitate to contact me if you are interested. I can give you an introduction to the core and the main concepts of the program. (Intermediate) Laravel skills are desirable.
 
 ## Featured Plug-ins
-Within the coming weeks I will make the following modules available separately in a repository.
 
 - <a href="https://github.com/markushaug/homify-sonos">```Sonos Plug-in```</a>
 - <a href="https://github.com/markushaug/homify-rfoutlet">```RFOutlet Plug-in (433 Mhz)```</a>
-- ```Hue Binding```
 
 The plug-ins can simply be installed with composer.
 
