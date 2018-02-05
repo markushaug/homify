@@ -1,12 +1,13 @@
 [![Build Status](https://travis-ci.org/markushaug/homify.svg?branch=master)](https://travis-ci.org/markushaug/homify)
 [![PHP7 Compatible](https://img.shields.io/badge/php-7-green.svg?style=flat-square)](https://packagist.org/packages/markushaug/homify)
+[![Source](http://img.shields.io/badge/source-markushaug/homify-green.svg?style=flat-square)](https://github.com/markushaug/homify)
 
 
 ## 🏡 Homify - Modular home automation platform 
 Homify is an module based home automation platform with HomeKit support.
 
 ## Features
-The system is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on architecture and the section on creating your own components ( Coming soon on).
+The system is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on architecture and the section on creating your own components ( Coming soon ).
 
 If you run into issues while using Homify or during development of a component, please contact me for further help and information.
 
@@ -21,8 +22,8 @@ Do not hesitate to contact me if you are interested. I can give you an introduct
 ## Featured Plug-ins
 Within the coming weeks I will make the following modules available separately in a repository.
 
-- <a href="https://github.com/markushaug/homify-sonos">```Sonos Binding```</a>
-- <a href="https://github.com/markushaug/homify-rf-outlet">```RF Binding (433 Mhz)```</a>
+- <a href="https://github.com/markushaug/homify-sonos">```Sonos Plug-in```</a>
+- <a href="https://github.com/markushaug/homify-rfoutlet">```RFOutlet Plug-in (433 Mhz)```</a>
 - ```Hue Binding```
 
 The plug-ins can simply be installed with composer.
