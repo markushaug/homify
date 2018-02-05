@@ -72,12 +72,16 @@ class ThingController extends Controller
     }
 
     public function create(Request $request){
-        \Validator::make($request->all(), [
-                'thingname' => 'required|unique:things,thing|max:191',
-                'binding' => 'required',
-                'room' => 'exists:rooms,id',
-                'json' => 'json'
-        ])->validate();
+        $validator = \Validator::make($request->all(), [
+                    'thingname' => 'required|unique:things,thing|max:191',
+                    'binding' => 'required',
+                    'room' => 'exists:rooms,id',
+                    'json' => 'json'
+                ])->validate();
+
+        if ($validator->fails()) {
+           // msg
+        }
         
         $data = [
             "thingname" => $request->thingname,
@@ -87,11 +91,38 @@ class ThingController extends Controller
         ];
 
         if(\Module::find($data['binding'])){
-            echo "found";
             $classString = 'Modules\\' . $data['binding']. '\\Thing\\Create' . $data['binding'];
             // Instantiate the class.
             $creator = new $classString($data);
             $creator->create();
+            return back();
+        }
+    }
+
+    public function update(Request $request){
+        $validator = \Validator::make($request->all(), [
+                    'thingname' => 'required|unique:things,thing|max:191',
+                    'binding' => 'required',
+                    'room' => 'exists:rooms,id',
+                    'json' => 'json'
+                ])->validate();
+
+        if ($validator->fails()) {
+           // msg
+        }
+        
+        $data = [
+            "thingname" => $request->thingname,
+            "binding" => $request->binding,
+            "room" => $request->room,
+            "json" => $request->json
+        ];
+
+        if(\Module::find($data['binding'])){
+            $classString = 'Modules\\' . $data['binding']. '\\Thing\\Update' . $data['binding'];
+            // Instantiate the class.
+            $updater = new $classString($data);
+            $updater->update();
             return back();
         }
     }

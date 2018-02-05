@@ -23,7 +23,50 @@
 	<div id="app" class="wrapper">
 		@include('light-bootstrap-dashboard::layouts.sidebar.main')
 
+		  <!-- Modal -->
+		  <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+							<h4 class="modal-title"><b>Add Thing</b></h4>
+						</div>
+						<div class="modal-body">
+							<form id="addThing-form" action="{{ url('thing/create') }}" method="POST">
+								{{ csrf_field() }}
+								<label for="thingname">Thing name:</label>
+								<input name="thingname"></input><br><br>
+		
+								<label for="binding">Binding:</label>
+								<select name="binding">
+									@php
+									$modules = Module::all();
+									foreach($modules as $module){
+										echo '<option value="'.$module->name.'">'.$module->name.'</option>';
+									}
+								  @endphp
+								</select><br><br>
+		
+		
+								<label for="json">Optional (JSON):</label>
+								<input name="json" placeholder=""></input>
+		
+								<input style="display: none;" name="room" value="{{ $currentRoom->id }}"></input>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" onclick="event.preventDefault();document.getElementById('addThing-form').submit();" class="btn btn-primary">Add Thing</button>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+
 		@include('light-bootstrap-dashboard::layouts.main-panel.main')
+
 	</div>
 
 	@section('scripts')
@@ -32,6 +75,23 @@
 	<script src="/js/jquery.js" charset="utf-8"></script>
 	<script src="/js/thing.js" charset="utf-8"></script>
 	<script src="{{ mix('/js/light-bootstrap-dashboard.js') }}" charset="utf-8"></script>
+
+	@if(!empty( $errors->first('thingname') ))
+	<script>
+		$.notify({
+				icon: "pe-7s-info",
+				message: "{{ $errors->first('thingname') }}<br>"
+			},{
+				type: "danger",
+				timer: 4000,
+				placement: {
+					from: 'top',
+					align: 'right'
+				}
+			});
+	</script>
+	@endif
+
 	@show
 	@stack('body')
 </body>

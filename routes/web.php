@@ -25,9 +25,10 @@
 
 Route::get('/thing/{thingName}/{channel}/{input?}', 'Thing\ThingController@touch');
 Route::post('/thing/create', 'Thing\ThingController@create');
+Route::post('/thing/update', 'Thing\ThingController@update');
 
 Auth::routes();
 Route::get('/', 'Views\HomeController@index')->name('home');
 Route::get('/room/{roomName?}', 'Views\HomeController@room')->name('room');
-
+Route::get('/room/{roomName?}/edit', 'Views\HomeController@editRoom')->name('editroom');
 

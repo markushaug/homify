@@ -31,3 +31,10 @@ function toggle(thing){
     });
 
 }
+
+function toggleEditModal(thing){
+    $('#editModal').modal('show');
+    $('input[name="thingname"]').val(thing.thing);
+    $('input[name="room"]').val(thing.room);
+    $('input[name="binding"]').val(thing.binding);
+}
