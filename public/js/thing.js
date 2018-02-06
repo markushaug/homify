@@ -34,6 +34,8 @@ function toggle(thing){
 
 function toggleEditModal(thing){
     $('#editModal').modal('show');
+    $('input[name="thingID"]').val(thing.id);
+    $('input[name="json"]').val(null);
     $('input[name="thingname"]').val(thing.thing);
     $('input[name="room"]').val(thing.room);
     $('input[name="binding"]').val(thing.binding);

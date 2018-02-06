@@ -23,6 +23,7 @@ class CreateThingsTable extends Migration
             $table->string('default_off');
             $table->string('protocol');
             $table->string('ip')->nullable();
+            $table->string('state');
             $table->integer('room_id')->unsigned();
             $table->timestamps();
 

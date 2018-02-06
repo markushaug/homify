@@ -78,10 +78,6 @@ class ThingController extends Controller
                     'room' => 'exists:rooms,id',
                     'json' => 'json'
                 ])->validate();
-
-        if ($validator->fails()) {
-           // msg
-        }
         
         $data = [
             "thingname" => $request->thingname,
@@ -100,24 +96,32 @@ class ThingController extends Controller
     }
 
     public function update(Request $request){
-        $validator = \Validator::make($request->all(), [
-                    'thingname' => 'required|unique:things,thing|max:191',
-                    'binding' => 'required',
-                    'room' => 'exists:rooms,id',
-                    'json' => 'json'
-                ])->validate();
-
-        if ($validator->fails()) {
-           // msg
+        if(is_null($request->json)) {
+            $validator = \Validator::make($request->all(), [
+                'thingID' => 'required|exists:things,id',
+                'thingname' => 'required|unique:things,thing|max:191',
+                'binding' => 'required',
+                'room' => 'exists:rooms,id'
+            ])->validate();
+        } else {
+            $validator = \Validator::make($request->all(), [
+                'thingID' => 'required|exists:things,id',
+                'thingname' => 'required|unique:things,thing|max:191',
+                'binding' => 'required',
+                'room' => 'exists:rooms,id',
+                'json' => 'sometimes|json'
+            ])->validate();
         }
-        
-        $data = [
-            "thingname" => $request->thingname,
-            "binding" => $request->binding,
-            "room" => $request->room,
-            "json" => $request->json
-        ];
 
+            $data = [
+                "thingID" => $request->thingID,
+                "thingname" => $request->thingname,
+                "binding" => $request->binding,
+                "room" => $request->room,
+                "json" => json_decode($request->json,true)
+            ];
+        
+            
         if(\Module::find($data['binding'])){
             $classString = 'Modules\\' . $data['binding']. '\\Thing\\Update' . $data['binding'];
             // Instantiate the class.

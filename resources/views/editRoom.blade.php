@@ -2,7 +2,7 @@
 
 <div id="AppArea">
     <!-- Modal -->
-    <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal" id="editModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -19,7 +19,7 @@
                         <select name="room">
                             @php
                             foreach($rooms as $room){
-                                echo '<option value="'.$room->room.'">'.$room->room.'</option>';
+                                echo '<option value="'.$room->id.'">'.$room->room.'</option>';
                             }
                           @endphp
                         </select><br><br>
@@ -36,9 +36,10 @@
 
 
                         <label for="json">Optional (JSON):</label>
-                        <input name="json" placeholder=""></input>
+                        <input name="json" placeholder="" value="{}"></input>
 
                         <input style="display: none;" name="currentRoom" value=""></input>
+                        <input style="display: none;" name="thingID" value=""></input>
                     </form>
                 </div>
                 <div class="modal-footer">
