@@ -75,7 +75,7 @@ $ composer update
 ```
 
 ### Database
-Setup your database & mail settings in the ```.env``` file
+Setup your database & mail settings in the ```.env``` file and then run:
 
 ```bash
 # Creating tables and inserting their default values to them
@@ -84,7 +84,9 @@ $ php artisan db:seed
 ```
 
 ### Webserver
-Set the webroot of your webserver to the ```public``` folder
+- Set the webroot of your webserver to the ```public``` folder
+- Grant permissions to the homify folder. 
+  - If the application runs into an issue, try this command inside of the homify directory: ```chmod -R 777 storage```.
 
 ### Note for Raspberry Pi users
 I highly recommend to use nginx or lighttp. Apache2 is using too much CPU and RAM on the Raspberry PI.
