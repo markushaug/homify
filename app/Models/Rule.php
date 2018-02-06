@@ -10,29 +10,22 @@ namespace App\Models;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class User
+ * Class Rule
  * 
  * @property int $id
- * @property string $name
- * @property string $email
- * @property string $password
- * @property string $remember_token
+ * @property string $ruleName
+ * @property string $thingListener
+ * @property string $jsonRule
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
  * @package App\Models
  */
-class User extends Eloquent
+class Rule extends Eloquent
 {
-	protected $hidden = [
-		'password',
-		'remember_token'
-	];
-
 	protected $fillable = [
-		'name',
-		'email',
-		'password',
-		'remember_token'
+		'ruleName',
+		'thingListener',
+		'jsonRule'
 	];
 }

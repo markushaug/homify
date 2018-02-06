@@ -31,4 +31,3 @@ Auth::routes();
 Route::get('/', 'Views\HomeController@index')->name('home');
 Route::get('/room/{roomName?}', 'Views\HomeController@room')->name('room');
 Route::get('/room/{roomName?}/edit', 'Views\HomeController@editRoom')->name('editroom');
-

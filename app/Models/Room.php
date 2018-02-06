@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Sat, 03 Feb 2018 11:33:55 +0000.
+ * Date: Tue, 06 Feb 2018 18:03:38 +0000.
  */
 
 namespace App\Models;
@@ -14,6 +14,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * 
  * @property int $id
  * @property string $room
+ * @property string $roomName
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -26,6 +27,7 @@ class Room extends Eloquent
 {
 	protected $fillable = [
 		'room',
+		'roomName',
 		'description'
 	];
 

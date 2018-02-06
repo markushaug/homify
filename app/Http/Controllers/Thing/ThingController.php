@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Thing;
 
 use App\Http\Controllers\Controller;
+use App\Rule;
 use Illuminate\Http\Request;
 use App\Models\Thing;
 
@@ -29,11 +30,14 @@ class ThingController extends Controller
     protected $input;
 
 
+   
     /**
-     * @param      $thingName
-     * @param      $channel
-     * @param null $input
-     * @return string
+     * touch
+     *
+     * @param mixed $thingName
+     * @param mixed $channel
+     * @param mixed $input
+     * @return void
      */
     public function touch($thingName, $channel, $input = null)
     {
@@ -65,12 +69,20 @@ class ThingController extends Controller
             $this->thing->$channel();
             Thing::where('thing', $thingName)
                     ->update(['state' => $this->thing->getStatus()]);
+                    $ruleParser = new \App\Rule\RuleParser($thingName, $channel);
+                    $ruleParser->registerRules();
                     return 'Success. Status: ' . $this->thing->getStatus();
-        } else {
-            return 'Channel <b>"' . $channel . '"</b> not defined';
         }
+        return 'Channel <b>"' . $channel . '"</b> not defined';
+        
     }
 
+    /**
+     * create
+     *
+     * @param Request $request
+     * @return void
+     */
     public function create(Request $request){
         $validator = \Validator::make($request->all(), [
                     'thingname' => 'required|unique:things,thing|max:191',
