@@ -13,10 +13,17 @@
       <img src="https://api.codacy.com/project/badge/Grade/caf921d27ed94b68b821792bd952fb62">
   </a>
   <a href="https://packagist.org/packages/markushaug/homify">
-    <img src="https://img.shields.io/badge/php-7-green.svg?style=flat-square">
+    <img src="https://img.shields.io/badge/php-7-green.svg?style=flat">
   </a>
   <a href="https://github.com/markushaug/homify">
-    <img src="http://img.shields.io/badge/source-markushaug/homify-green.svg?style=flat-square">
+    <img src="http://img.shields.io/badge/source-markushaug/homify-green.svg?style=flat">
+  </a>
+  <a href="https://packagist.org/packages/markushaug/homify">
+    <img src="https://poser.pugx.org/markushaug/homify/downloads">
+  </a>
+  <a href="https://packagist.org/packages/markushaug/homify">
+    <img src="https://poser.pugx.org/markushaug/homify/v/stable">
+  </a>
 </p>
 
 [![Dashboard](https://i.imgur.com/YwK44H2.png)](https://github.com/markushaug/homify)
