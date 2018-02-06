@@ -48,10 +48,12 @@ class RuleParser
     */
     public function registerRules(){
         // Retrieve rules for the current thing
-        $rules = Rule::where('thingListener', $this->listener)->first();
-        if($this->validateJson($rules->jsonRule) === true){
-            $this->jsonRule = json_decode($rules->jsonRule);
-            $this->parseJson();
+        $rules = Rule::where('thingListener', $this->listener)->get();
+        foreach($rules as $rule){
+            if($this->validateJson($rule->jsonRule) === true){
+                $this->jsonRule = json_decode($rule->jsonRule);
+                $this->parseJson();
+            }
         }
         return;
     }
