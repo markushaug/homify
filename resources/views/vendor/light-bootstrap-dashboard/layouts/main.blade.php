@@ -23,6 +23,7 @@
 	<div id="app" class="wrapper">
 		@include('light-bootstrap-dashboard::layouts.sidebar.main')
 
+		@unless(\Route::current()->getName() == 'automation')
 		  <!-- Modal -->
 		  <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
@@ -64,7 +65,7 @@
 				<!-- /.modal-dialog -->
 			</div>
 			<!-- /.modal -->
-
+		@endunless
 		@include('light-bootstrap-dashboard::layouts.main-panel.main')
 
 	</div>

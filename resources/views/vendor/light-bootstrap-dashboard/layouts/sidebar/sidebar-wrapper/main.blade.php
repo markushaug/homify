@@ -9,54 +9,31 @@
 
   @section('sidebar-menu')
   <ul class="nav">
-    <li class="active">
-      <a href="#">
-        <i class="pe-7s-graph"></i>
-        <p>Dashboard</p>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="pe-7s-user"></i>
-        <p>User Profile</p>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="pe-7s-note2"></i>
-        <p>Table List</p>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="pe-7s-news-paper"></i>
-        <p>Typography</p>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="pe-7s-science"></i>
-        <p>Icons</p>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="pe-7s-map-marker"></i>
-        <p>Maps</p>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="pe-7s-bell"></i>
-        <p>Notifications</p>
-      </a>
-    </li>
+      @foreach ($rooms as $room)
+      <li id="{{ $room->id }}" class="active">
+         <a href="{{ url('room/'.$room->room) }}">
+           <i class="pe-7s-home"></i>
+           <p>{{ $room->room }}</p>
+         </a>
+       </li>
+     @endforeach
+    
+    
     <li class="active-pro">
       <a href="#">
-        <i class="pe-7s-rocket"></i>
-        <p>Upgrade to PRO</p>
+        <i class="pe-7s-plus"></i>
+        <p>Add Room</p>
       </a>
     </li>
   </ul>
   @show
 </div>
+
+<style>
+    .sidebar .nav .active-pro,
+    body>.navbar-collapse .nav .active-pro {
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+    }
+  </style>    

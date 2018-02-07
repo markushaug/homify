@@ -1,4 +1,5 @@
-@extends('layouts.app') @section('content-title', $currentRoom->room ) @section('content')
+@extends('layouts.app') @section('content-title', $currentRoom->room ) 
+@section('content')
 
 <div id="AppArea">
   

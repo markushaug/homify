@@ -4,9 +4,11 @@
       @section('footer-menu')
       <ul>
         <li>
-          <a href="{{ '/room/'.$currentRoom->room.'/edit' }}">
-            Edit Things
+          @unless(\Route::current()->getName() == 'automation')
+          <a href="{{ '/automation' }}">
+            Automation
           </a>
+          @endunless
         </li>
       </ul>
       @show
