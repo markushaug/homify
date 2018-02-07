@@ -20,14 +20,20 @@
 +--------+----------+--------------------------------------+------------------+------------------------------------------------------------------------+--------------+
 */
 
+// Default auth routes
+Auth::routes();
 
-/* Dynamic thing Routes */
+// HomeController
+Route::get('/', 'Views\HomeController@index')->name('home');
+Route::get('/room/{roomName?}', 'Views\HomeController@room')->name('room');
+Route::get('/room/{roomName?}/edit', 'Views\HomeController@editRoom')->name('editroom');
 
+// Thing Controller
 Route::get('/thing/{thingName}/{channel}/{input?}', 'Thing\ThingController@touch');
 Route::post('/thing/create', 'Thing\ThingController@create');
 Route::post('/thing/update', 'Thing\ThingController@update');
 
-Auth::routes();
-Route::get('/', 'Views\HomeController@index')->name('home');
-Route::get('/room/{roomName?}', 'Views\HomeController@room')->name('room');
-Route::get('/room/{roomName?}/edit', 'Views\HomeController@editRoom')->name('editroom');
+// Rule Controller
+Route::get('/automation', 'Rules\AutomationController@index')->name('automation');
+Route::post('/automation/create', 'Rules\AutomationController@create');
+Route::post('/automation/generate', 'Rules\AutomationController@generateEventListeners');

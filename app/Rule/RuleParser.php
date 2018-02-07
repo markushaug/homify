@@ -36,21 +36,26 @@ class RuleParser
      * @param mixed $channel
      * @return void
      */
-    public function __construct($thing, $channel){
-        $this->listener = $thing;
-        $this->event = $channel;
+    public function __construct($thing = null, $channel = null)
+    {
+        if (!is_null($thing) || !is_null($channel)) {
+            $this->listener = $thing;
+            $this->event = $channel;
+        }
     }
 
     /**
     * registerRules
+    * Collect all rules for the triggered thing
     *
     * @return void
     */
-    public function registerRules(){
+    public function registerRules()
+    {
         // Retrieve rules for the current thing
         $rules = Rule::where('thingListener', $this->listener)->get();
-        foreach($rules as $rule){
-            if($this->validateJson($rule->jsonRule) === true){
+        foreach ($rules as $rule) {
+            if ($this->validateJson($rule->jsonRule) === true) {
                 $this->jsonRule = json_decode($rule->jsonRule);
                 $this->parseJson();
             }
@@ -61,11 +66,13 @@ class RuleParser
     
     /**
      * validateJson
+     * Check if $json is json-formatted
      *
      * @param mixed $json
      * @return void
      */
-    private function validateJson($json){
+    private function validateJson($json)
+    {
         $isJson = json_decode($json);
 
         if ($isJson instanceof \stdClass) {
@@ -76,56 +83,65 @@ class RuleParser
 
     /**
      * parseJson
+     * Parse JSON and execute then-block if condition evaluates as true
      *
      * @return void
      */
-    private function parseJson(){
-      $this->jsonRule = $this->jsonRule;
+    private function parseJson()
+    {
+        
+    
+        // Grab RuleName from json
+        $ruleName = $this->jsonRule->rule;
 
-      // Get RuleName
-      $ruleName = $this->jsonRule->rule;
-
-      // Get all if & then conditions
-      $ifConditions = get_object_vars($this->jsonRule->if);
-      $thenConditions = get_object_vars($this->jsonRule->then);
+        // Grab all if & then conditions
+        $ifConditions = get_object_vars($this->jsonRule->if);
+        $thenConditions = get_object_vars($this->jsonRule->then);
       
-      /* 
-      Allowed if rules:
-        - thing: {name: xy, channel: xy}
-     */
+        /*
+        Allowed if rules:
+            - time: "09:00:00"
+            - thing: {name: xy, channel: xy}
+        */
+        
+        // Parse each ifCondition
+        foreach ($ifConditions as $type => $value) {
 
-     // Validate the rule types
-      foreach($ifConditions as $type => $value) {
-          switch($type){
-              case 'time':
-              // time handler
-              break;
-              case 'thing':
-                // thing handler
-                if( !empty( $this->jsonRule->if->thing->name ) || !empty( $this->jsonRule->if->thing->name ) ){
-                    if( $this->listener == $this->jsonRule->if->thing->name && $this->event == $this->jsonRule->if->thing->channel ){
-                        $this->parseThenCondition($thenConditions);
-                        break; 
-                    }
-                    }
+            // Semantic analysis for the conditions
+            switch ($type) {
+                case 'time':
+                // time handler
+                // this event is handled by the generateEventListener
                 break;
-          }
-      }
+                case 'thing':
+                    // thing handler
+                    if (!empty($this->jsonRule->if->thing->name) || !empty($this->jsonRule->if->thing->name)) {
+                        if ($this->listener == $this->jsonRule->if->thing->name && $this->event == $this->jsonRule->if->thing->channel) {
+                            // Parse then condition for the thing-block if condition is true
+                            $this->parseThenCondition($thenConditions);
+                            break;
+                        }
+                    }
+                    break;
+            }
+        }
     }
 
-    private function parseThenCondition($thenConditions){
-        // Validate the rule types
-      foreach($thenConditions as $type => $value) {
-        switch($type){
+    private function parseThenCondition($thenConditions)
+    {
+        // Parse each thenCondition
+        foreach ($thenConditions as $type => $value) {
+            // Semantic analysis for the conditions
+            switch ($type) {
             case 'thing':
               // thing handler
-              if( !empty( $this->jsonRule->then->thing->name ) || !empty( $this->jsonRule->then->thing->name ) ){
+              if (!empty($this->jsonRule->then->thing->name) || !empty($this->jsonRule->then->thing->name)) {
                   $thing = $this->jsonRule->then->thing->name;
                   $channel = $this->jsonRule->then->thing->channel;
                   $controller = new ThingController();
                   $controller->touch($thing, $channel);
                   break;
-                }
+              }
             }
             break;
         }

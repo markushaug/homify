@@ -69,12 +69,11 @@ class ThingController extends Controller
             $this->thing->$channel();
             Thing::where('thing', $thingName)
                     ->update(['state' => $this->thing->getStatus()]);
-                    $ruleParser = new \App\Rule\RuleParser($thingName, $channel);
-                    $ruleParser->registerRules();
-                    return 'Success. Status: ' . $this->thing->getStatus();
+            $ruleParser = new \App\Rule\RuleParser($thingName, $channel);
+            $ruleParser->registerRules();
+            return 'Success. Status: ' . $this->thing->getStatus();
         }
         return 'Channel <b>"' . $channel . '"</b> not defined';
-        
     }
 
     /**
@@ -83,7 +82,8 @@ class ThingController extends Controller
      * @param Request $request
      * @return void
      */
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $validator = \Validator::make($request->all(), [
                     'thingname' => 'required|unique:things,thing|max:191',
                     'binding' => 'required',
@@ -98,7 +98,7 @@ class ThingController extends Controller
             "json" => $request->json
         ];
 
-        if(\Module::find($data['binding'])){
+        if (\Module::find($data['binding'])) {
             $classString = 'Modules\\' . $data['binding']. '\\Thing\\Create' . $data['binding'];
             // Instantiate the class.
             $creator = new $classString($data);
@@ -107,8 +107,15 @@ class ThingController extends Controller
         }
     }
 
-    public function update(Request $request){
-        if(is_null($request->json)) {
+    /**
+     * update
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function update(Request $request)
+    {
+        if (is_null($request->json)) {
             $validator = \Validator::make($request->all(), [
                 'thingID' => 'required|exists:things,id',
                 'thingname' => 'required|unique:things,thing|max:191',
@@ -125,16 +132,16 @@ class ThingController extends Controller
             ])->validate();
         }
 
-            $data = [
+        $data = [
                 "thingID" => $request->thingID,
                 "thingname" => $request->thingname,
                 "binding" => $request->binding,
                 "room" => $request->room,
-                "json" => json_decode($request->json,true)
+                "json" => json_decode($request->json, true)
             ];
         
             
-        if(\Module::find($data['binding'])){
+        if (\Module::find($data['binding'])) {
             $classString = 'Modules\\' . $data['binding']. '\\Thing\\Update' . $data['binding'];
             // Instantiate the class.
             $updater = new $classString($data);
@@ -142,6 +149,4 @@ class ThingController extends Controller
             return back();
         }
     }
-
-
 }
