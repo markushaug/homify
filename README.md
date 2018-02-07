@@ -44,7 +44,6 @@
 - [Plug-in Development](#plug-in-development)
 - [FAQ / CONTACT / TROUBLESHOOT](#faq--contact--troubleshoot)
 - [Contributing](#contributing)
-- [License](#license)
 
 
 ## ABOUT HOMIFY
@@ -122,9 +121,6 @@ If you run into issues while using Homify or during development of a component, 
 ## CONTRIBUTING
 I would appreciate it if you would contribute to this project.
 Do not hesitate to contact me if you are interested. I can give you an introduction to the core and the main concepts of the program. (Intermediate) Laravel skills are desirable.
-
-## LICENSE
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 ---
 
