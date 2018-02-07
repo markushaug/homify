@@ -108,7 +108,7 @@ Homify supports rules to automate your home. You can create an rule via Homifys 
 
 ### Structure
 Each Rule has the following structure:
-```json
+```
 {
 	"rule": "rule name (unique)",
 	"if": {
