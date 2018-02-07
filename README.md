@@ -39,6 +39,10 @@
     - [Database](#database)
     - [Webserver](#webserver)
     - [Note for PI users](#note-for-raspberry-pi-users)
+- [Rules](#rules)
+    - [Features](#features)
+    - [Structure](#structure)
+    - [Example](#example)
 - [HTTP-API](#http-api)
 - [Coming Soon](#coming-soon)
 - [Plug-in Development](#plug-in-development)
@@ -49,10 +53,11 @@
 ## ABOUT HOMIFY
 Homify is built using a modular approach so support for other devices or actions can be implemented easily. See also the section on creating your own plug-in below in this READ.me.
 
-## Key Features
+## KEY FEATURES
 
 * Manage your IoT-devices simply over the GUI
   - Instantly see if your device is online or not
+* Automate your home with rules
 * Install Plug-ins
   - Homify is built using a modular approach so support for other devices or actions can be implemented easily.
 * Central Room Management
@@ -89,6 +94,50 @@ $ php artisan db:seed
 
 ### Note for Raspberry Pi users
 I highly recommend to use nginx or lighttp. Apache2 is using too much CPU and RAM on the Raspberry PI.
+
+
+## RULES
+Homify supports rules to automate your home. You can create an rule via Homifys web interface.
+
+### Features
+- Define multiple rules for one thing.<br>
+  Each rule expands the entire rule base of the respective item with a logical OR.<br>
+  ```IF <RULE1> === TRUE || <RULE2> === TRUE || ...```<br>
+- The ```ThingController``` calls the RuleParser every time an event is triggered and scans for defined rules in the rule base.
+- Time-controlled events are constructed as a cron job that triggers the execution block.
+
+### Structure
+Each Rule has the following structure:
+```json
+{
+	"rule": "rule name (unique)",
+	"if": {
+        /*<TRIGGER CONDITION>*/
+	},
+	"then": {
+        /*
+        <EXECUTION_BLOCK1> and
+        <EXECUTION_BLOCK2>
+        */
+	}
+}
+```
+### Example
+Below is an example of a rule with a time-controlled event wich triggers an channel of the defined thing.
+```json
+{
+	"rule": "goodEvening",
+	"if": {
+		"time": "20:00:00"
+	},
+	"then": {
+		"thing": {
+			"name": "Play1",
+			"channel": "off"
+		}
+	}
+}
+```
 
 ## HTTP-API
 Homify provides an http-api to acces your things.
