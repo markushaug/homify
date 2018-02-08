@@ -54,7 +54,7 @@
         ]
     },
     "config": {
-        "minimum-stability": "dev-master",
+        "minimum-stability": "~0.1*",
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
