@@ -154,7 +154,7 @@ For example:
 - HAP-Protocol (HomeKit) integration
 
 ## PLUG-IN DEVELOPMENT
-Ech Plug-in inherits from an Thing-Type (```Light```, ```Switcher```, ```Speaker```, etc.). Each Thing-Type inherits from the abstract thing class. So each thing has the required functions.
+Each Plug-in inherits from an Thing-Type (```Light```, ```Switcher```, ```Speaker```, etc.). Each Thing-Type inherits from the abstract thing class. So each thing has the required functions.
 
 If you are creating an plug-in for homify, you have to inherit from an Thing-Type. Or you create an additional thing-type.
 Each Thing needs an ```<Thing>.php```, ```Create<Thing>.php``` and an ```Update<Thing>.php``` File. You can take on of the existing Plug-ins as template.
