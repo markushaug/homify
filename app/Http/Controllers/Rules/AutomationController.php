@@ -86,9 +86,9 @@ class AutomationController extends Controller
         // Collect all Rules
         $rules = Rule::all();
 
-        // 
-
-       // (new RuleParser())->registerRules();
+        // Create ruleParser
+        $ruleParser = new RuleParser();
+        $ruleParser->generateJobs();
         
 
         return back();

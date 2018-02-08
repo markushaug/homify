@@ -63,15 +63,18 @@ class ThingController extends Controller
 
         // Send Input to Class
         $this->thing->setInput($this->input);
+    
 
         // Call the Channel/Method of class if the channel is existing.
         if ($this->thing->hasChannel($this->thing, $channel) === true) {
             $this->thing->$channel();
-            Thing::where('thing', $thingName)
+            if(!is_null($this->thing->getStatus())){
+                Thing::where('thing', $thingName)
                     ->update(['state' => $this->thing->getStatus()]);
+            }
             $ruleParser = new \App\Rule\RuleParser($thingName, $channel);
             $ruleParser->registerRules();
-            return 'Success. Status: ' . $this->thing->getStatus();
+            return $this->thing->getStatus();
         }
         return 'Channel <b>"' . $channel . '"</b> not defined';
     }
