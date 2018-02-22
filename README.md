@@ -171,7 +171,7 @@ If you run into issues while using Homify or during development of a component, 
 I would appreciate it if you would contribute to this project.
 Do not hesitate to contact me if you are interested. I can give you an introduction to the core and the main concepts of the program. (Intermediate) Laravel skills are desirable.
 
-For further information please read our [contributing guidelines](https://github.com/markushaug/homify/CONTRIBUTING.md)
+For further information please read our [contributing guidelines](https://github.com/markushaug/homify/blob/master/CONTRIBUTING.md)
 
 ---
 
