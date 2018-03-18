@@ -14,8 +14,8 @@
 
   <!-- Styles -->
   @section('styles')
-  <link href="{{ mix('/css/light-bootstrap-dashboard.css') }}" rel="stylesheet">
-  <link href="{{ mix('/css/auth.css') }}" rel="stylesheet">
+  <link href="{{ env('APP_URL') }}{{ mix('/css/light-bootstrap-dashboard.css') }}" rel="stylesheet">
+  <link href="{{ env('APP_URL') }}{{ mix('/css/auth.css') }}" rel="stylesheet">
   @show
   @stack('head')
 </head>

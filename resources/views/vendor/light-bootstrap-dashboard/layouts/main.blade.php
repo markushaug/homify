@@ -14,8 +14,8 @@
 
   <!-- Styles -->
   @section('styles')
-  <link href="{{ mix('/css/light-bootstrap-dashboard.css') }}" rel="stylesheet">
-  <link href="/css/things.css" rel="stylesheet">
+  <link href="{{ env('APP_URL') }}{{ mix('/css/light-bootstrap-dashboard.css') }}" rel="stylesheet">
+  <link href="{{ env('APP_URL') }}/css/things.css" rel="stylesheet">
   @show
   @stack('head')
 </head>
@@ -71,11 +71,11 @@
 	</div>
 
 	@section('scripts')
-	<script src="{{ mix('/js/manifest.js') }}" charset="utf-8"></script>
-	<script src="{{ mix('/js/vendor.js') }}" charset="utf-8"></script>
-	<script src="/js/jquery.js" charset="utf-8"></script>
-	<script src="/js/thing.js" charset="utf-8"></script>
-	<script src="{{ mix('/js/light-bootstrap-dashboard.js') }}" charset="utf-8"></script>
+	<script src="{{ env('APP_URL') }}{{ mix('/js/manifest.js') }}" charset="utf-8"></script>
+	<script src="{{ env('APP_URL') }}{{ mix('/js/vendor.js') }}" charset="utf-8"></script>
+	<script src="{{ env('APP_URL') }}/js/jquery.js" charset="utf-8"></script>
+	<script src="{{ env('APP_URL') }}/js/thing.js" charset="utf-8"></script>
+	<script src="{{ env('APP_URL') }}{{ mix('/js/light-bootstrap-dashboard.js') }}" charset="utf-8"></script>
 
 	@if(!empty( $errors->first('thingname') ))
 	<script>
