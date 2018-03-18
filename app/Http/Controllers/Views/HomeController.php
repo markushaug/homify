@@ -31,7 +31,7 @@ class HomeController extends Controller
                ->first();
         $things = Thing::where('room_id',$defaultRoom->id)->get();
 
-        if( count($defaultRoom) != 1){
+        if( $defaultRoom === null ){
             return "Default room is missing!";
         }
 
