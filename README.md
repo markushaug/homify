@@ -104,7 +104,7 @@ Homify supports rules to automate your home. You can create an rule via Homifys 
   Each rule expands the entire rule base of the respective item with a logical OR.<br>
   ```IF <RULE1> === TRUE || <RULE2> === TRUE || ...```<br>
 - The ```ThingController``` calls the RuleParser every time an event is triggered and scans for defined rules in the rule base.
-- Time-controlled events are constructed as a cron job that triggers the execution block.
+- Time-controlled events are constructed as a cron job that triggers the execution block. ( Not yet implemented )
 
 ### Structure
 Each Rule has the following structure:
@@ -152,6 +152,7 @@ For example:
 - WebGUI for central room management & device management
 - Tablet View for single rooms
 - HAP-Protocol (HomeKit) integration
+- Cron-Jobs for Time-triggered rules
 
 ## PLUG-IN DEVELOPMENT
 Each Plug-in inherits from an Thing-Type (```Light```, ```Switcher```, ```Speaker```, etc.). Each Thing-Type inherits from the abstract thing class. So each thing has the required functions.
