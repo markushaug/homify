@@ -71,6 +71,8 @@ class ThingController extends Controller
             if(!is_null($this->thing->getStatus())){
                 Thing::where('thing', $thingName)
                     ->update(['state' => $this->thing->getStatus()]);
+            } else {
+                $this->thing->setStatus(Thing::where('thing', $thingName)->get(['state' => $this->thing->getStatus()]));
             }
             $ruleParser = new \App\Rule\RuleParser($thingName, $channel);
             $ruleParser->registerRules();

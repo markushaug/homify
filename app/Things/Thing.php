@@ -42,9 +42,10 @@ abstract class Thing
 
 
     /**
+     * getChannels
      * Get all channels of an Thing and return as array
-     *
-     * @param mixed $className
+     * 
+     * @param mixed $classObject
      * @return void
      */
     public function getChannels($classObject)
@@ -65,12 +66,14 @@ abstract class Thing
         return $channels;
     }
 
+
     /**
+     * hasChannel
      * Check if an Thing has the requested channel
-     *
-     * @param $lo_class
-     * @param $lv_channel
-     * @return bool
+     * 
+     * @param mixed $classObject
+     * @param mixed $channel
+     * @return void
      */
     public function hasChannel($classObject, $channel)
     {
@@ -85,8 +88,11 @@ abstract class Thing
         return false;
     }
 
+    
     /**
-     * @return mixed
+     * getStatus
+     *
+     * @return void
      */
     public function getStatus()
     {
@@ -94,7 +100,10 @@ abstract class Thing
     }
 
     /**
-     * @param $lv_status
+     * setStatus
+     *
+     * @param mixed $lv_status
+     * @return void
      */
     public function setStatus($lv_status)
     {

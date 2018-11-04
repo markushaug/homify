@@ -88,7 +88,7 @@ class AutomationController extends Controller
 
         // Create ruleParser
         $ruleParser = new RuleParser();
-        $ruleParser->generateJobs();
+        $ruleParser->generateJobs($rules);
         
 
         return back();

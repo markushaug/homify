@@ -32,7 +32,7 @@ Route::get('/room/{roomName?}/edit', 'Views\HomeController@editRoom')->name('edi
 Route::get('/thing/{thingName}/{channel}/{input?}', 'Thing\ThingController@touch');
 Route::post('/thing/create', 'Thing\ThingController@create');
 Route::post('/thing/update', 'Thing\ThingController@update');
-
+Route::post('/thing/delete', 'Thing\ThingController@delete');
 // Rule Controller
 Route::get('/automation', 'Rules\AutomationController@index')->name('automation');
 Route::post('/automation/create', 'Rules\AutomationController@create');

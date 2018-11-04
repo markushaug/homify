@@ -69,6 +69,12 @@
             </div>
             <div class="Bar">
                 <a style="cursor: pointer;" title="{{ $thing->thing }}" href="#editModal" onclick="toggleEditModal({{$thing}})" title="Edit">Edit</a>
+                <form id="generateEventListener-form" action="{{ url('/automation/generate') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                  </form>
+                  <a href="#" onclick="event.preventDefault();document.getElementById('generateEventListener-form').submit();">
+                    <p>Generate Jobs</p>
+                  </a>
             </div>
         </li>
 

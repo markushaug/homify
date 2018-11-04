@@ -1,40 +1,38 @@
-<?php 
+<?php
+
 namespace App\Rule;
 
 use App\Http\Controllers\Thing\ThingController;
 use App\Models\Rule;
-use Validator;
 
 class RuleParser
 {
-
     /**
-     * $listener
+     * $listener.
      *
      * @var string
      */
     private $listener;
 
     /**
-     * $jsonRule
+     * $jsonRule.
      *
      * @var json
      */
     private $jsonRule;
 
     /**
-     * $event
+     * $event.
      *
      * @var string
      */
     private $event;
 
     /**
-     * __construct
+     * __construct.
      *
      * @param mixed $thing
      * @param mixed $channel
-     * @return void
      */
     public function __construct($thing = null, $channel = null)
     {
@@ -45,31 +43,28 @@ class RuleParser
     }
 
     /**
-    * registerRules
-    * Collect all rules for the triggered thing
-    *
-    * @return void
-    */
+     * registerRules
+     * Collect all rules for the triggered thing.
+     */
     public function registerRules()
     {
         // Retrieve rules for the current thing
         $rules = Rule::where('thingListener', $this->listener)->get();
         foreach ($rules as $rule) {
-            if ($this->validateJson($rule->jsonRule) === true) {
+            if (true === $this->validateJson($rule->jsonRule)) {
                 $this->jsonRule = json_decode($rule->jsonRule);
                 $this->parseJson();
             }
         }
+
         return;
     }
 
-    
     /**
      * validateJson
-     * Check if $json is json-formatted
+     * Check if $json is json-formatted.
      *
      * @param mixed $json
-     * @return void
      */
     private function validateJson($json)
     {
@@ -78,35 +73,31 @@ class RuleParser
         if ($isJson instanceof \stdClass) {
             return true;
         }
+
         return false;
     }
 
     /**
      * parseJson
-     * Parse JSON and execute then-block if condition evaluates as true
-     *
-     * @return void
+     * Parse JSON and execute then-block if condition evaluates as true.
      */
     private function parseJson()
     {
-        
-    
         // Grab RuleName from json
         $ruleName = $this->jsonRule->rule;
 
         // Grab all if & then conditions
         $ifConditions = get_object_vars($this->jsonRule->if);
         $thenConditions = get_object_vars($this->jsonRule->then);
-      
+
         /*
         Allowed if rules:
             - time: "09:00:00"
             - thing: {name: xy, channel: xy}
         */
-        
+
         // Parse each ifCondition
         foreach ($ifConditions as $type => $value) {
-
             // Semantic analysis for the conditions
             switch ($type) {
                 case 'time':
@@ -145,5 +136,15 @@ class RuleParser
             }
             break;
         }
+    }
+
+    /**
+     * generateJobs
+     *
+     * @param mixed $rules
+     * @return void
+     */
+    private function generateJobs($rules){
+        
     }
 }
