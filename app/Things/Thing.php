@@ -96,7 +96,10 @@ abstract class Thing
      */
     public function getStatus()
     {
-        return $this->status;
+        print($this->status);
+        return $this->status == 'ON' ?  1 :  0;
+        //return $this->status;
+
     }
 
     /**
