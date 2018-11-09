@@ -56,25 +56,27 @@ class ThingController extends Controller
             return 'Thing "' . $thingName . '" not found';
         }
 
+        // Concatenate the module's namespace with its binder.
         $classString = 'Modules\\' . $this->meta->binding . '\\Thing\\' . $this->meta->binding;
 
         // Instantiate the class.
         $this->thing = new $classString($this->meta);
 
-        // Send Input to Class
+        // Send Input
         $this->thing->setInput($this->input);
     
 
-        // Call the Channel/Method of class if the channel is existing.
+        // Call the Channel/Method of class if the channel exists.
         if ($this->thing->hasChannel($this->thing, $channel) === true) {
             $this->thing->$channel();
             if(!is_null($this->thing->getStatus())){
                 Thing::where('thing', $thingName)
                     ->update(['state' => $this->thing->getStatus()]);
-            } else {
-                $lv_thing = Thing::where('thing', $thingName)->first();
-                $this->thing->setStatus($lv_thing->state);
-            }
+            } 
+            $lv_thing = Thing::where('thing', $thingName)->first();
+            $this->thing->setStatus($lv_thing->state);
+            
+            // handling the rules
             $ruleParser = new \App\Rule\RuleParser($thingName, $channel);
             $ruleParser->registerRules();
             return $this->thing->getStatus();

@@ -90,6 +90,7 @@ class RuleParser
         $ifConditions = get_object_vars($this->jsonRule->if);
         $thenConditions = get_object_vars($this->jsonRule->then);
 
+       
         /*
         Allowed if rules:
             - time: "09:00:00"
@@ -106,8 +107,8 @@ class RuleParser
                 break;
                 case 'thing':
                     // thing handler
-                    if (!empty($this->jsonRule->if->thing->name) || !empty($this->jsonRule->if->thing->name)) {
-                        if ($this->listener == $this->jsonRule->if->thing->name && $this->event == $this->jsonRule->if->thing->channel) {
+                    if (!empty($this->jsonRule->if->thing->name)) {
+                        if ($this->event == $this->jsonRule->if->thing->channel) {
                             // Parse then condition for the thing-block if condition is true
                             $this->parseThenCondition($thenConditions);
                             break;
@@ -124,15 +125,15 @@ class RuleParser
         foreach ($thenConditions as $type => $value) {
             // Semantic analysis for the conditions
             switch ($type) {
-            case 'thing':
-              // thing handler
-              if (!empty($this->jsonRule->then->thing->name) || !empty($this->jsonRule->then->thing->name)) {
-                  $thing = $this->jsonRule->then->thing->name;
-                  $channel = $this->jsonRule->then->thing->channel;
-                  $controller = new ThingController();
-                  $controller->touch($thing, $channel);
-                  break;
-              }
+                case 'thing':
+                // thing handler
+                if (!empty($this->jsonRule->then->thing->name)) {
+                    $thing = $this->jsonRule->then->thing->name;
+                    $channel = $this->jsonRule->then->thing->channel;
+                    $controller = new ThingController();
+                    $controller->touch($thing, $channel);
+                    break;
+                }
             }
             break;
         }
