@@ -43,10 +43,10 @@ class RuleParser
     }
 
     /**
-     * registerRules
-     * Collect all rules for the triggered thing.
+     * executeRules
+     * Execute all rules for the triggered thing.
      */
-    public function registerRules()
+    public function executeRules()
     {
         // Retrieve rules for the current thing
         $rules = Rule::where('thingListener', $this->listener)->get();
@@ -81,7 +81,7 @@ class RuleParser
      * parseJson
      * Parse JSON and execute then-block if condition evaluates as true.
      */
-    private function parseJson()
+    private function parseJson($generateJob = 0)
     {
         // Grab RuleName from json
         $ruleName = $this->jsonRule->rule;
@@ -90,7 +90,11 @@ class RuleParser
         $ifConditions = get_object_vars($this->jsonRule->if);
         $thenConditions = get_object_vars($this->jsonRule->then);
 
-       
+
+       /* echo '<pre>';
+        print_r($this->jsonRule);
+        echo '</pre>'; exit;*/
+
         /*
         Allowed if rules:
             - time: "09:00:00"
@@ -102,10 +106,20 @@ class RuleParser
             // Semantic analysis for the conditions
             switch ($type) {
                 case 'time':
-                // time handler
-                // this event is handled by the generateEventListener
-                break;
+                    // time handler
+                    // this event is handled by the generateEventListener
+                    $time = $this->jsonRule->if->time;
+                    $TaskList = $this->parseThenCondition($thenConditions,1);
+                    //print($time);
+                   // print_r($thenConditions);
+                    foreach($TaskList as $task => $value){
+                    // print("Trigger " . $value["channel"] . " for " . $value["thing"] . " at " . $time);
+                    }
+                   // print("Trigger " . $TaskList[0]["channel"] . " for " . $TaskList[0]["thing"] . " at " . $time);
+
+                    break;
                 case 'thing':
+                    if($generateJob == 0) { break; } // if generator == 1, only time jobs are processed
                     // thing handler
                     if (!empty($this->jsonRule->if->thing->name)) {
                         if ($this->event == $this->jsonRule->if->thing->channel) {
@@ -119,24 +133,36 @@ class RuleParser
         }
     }
 
-    private function parseThenCondition($thenConditions)
+    private function parseThenCondition($thenConditions, $generateJob = 0)
     {
+        $taskList = array();
+
         // Parse each thenCondition
         foreach ($thenConditions as $type => $value) {
             // Semantic analysis for the conditions
             switch ($type) {
                 case 'thing':
-                // thing handler
-                if (!empty($this->jsonRule->then->thing->name)) {
-                    $thing = $this->jsonRule->then->thing->name;
-                    $channel = $this->jsonRule->then->thing->channel;
-                    $controller = new ThingController();
-                    $controller->touch($thing, $channel);
-                    break;
+                    // thing handler
+                    if (!empty($this->jsonRule->then->thing->name)) {
+                        $thing = $this->jsonRule->then->thing->name;
+                        $channel = $this->jsonRule->then->thing->channel;
+
+                        if($generateJob == 0) {
+                            $controller = new ThingController();
+                            $controller->touch($thing, $channel);
+                            break;
+                        }
+                        $newTask = [
+                            "thing" => $thing,
+                            "channel" => $channel
+                        ];
+                        array_push($taskList, $newTask);
+                        break;
                 }
             }
             break;
         }
+        return $taskList;
     }
 
     /**
@@ -145,7 +171,13 @@ class RuleParser
      * @param mixed $rules
      * @return void
      */
-    private function generateJobs($rules){
-        
+    public function generateJobs($rules){
+       
+        foreach ($rules as $rule) {
+            if (true === $this->validateJson($rule->jsonRule)) {
+                $this->jsonRule = json_decode($rule->jsonRule);
+                $this->parseJson(1);
+            }
+        }
     }
 }

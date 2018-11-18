@@ -78,7 +78,7 @@ class ThingController extends Controller
             
             // handling the rules
             $ruleParser = new \App\Rule\RuleParser($thingName, $channel);
-            $ruleParser->registerRules();
+            $ruleParser->executeRules();
             return $this->thing->getStatus();
         }
         return 'Channel <b>"' . $channel . '"</b> not defined';
