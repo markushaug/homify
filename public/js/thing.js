@@ -8,10 +8,10 @@ function toggle(thing){
     var newState;
     newState = thing.state;
 
-        if(newState == 'OFF'){
-            newState = 'ON';
+        if(newState == '0'){
+            newState = '1';
         } else {
-            newState = 'OFF';
+            newState = '0';
         }
         console.log(newState);
     // post
