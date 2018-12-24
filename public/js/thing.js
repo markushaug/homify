@@ -9,9 +9,9 @@ function toggle(thing){
     newState = thing.state;
 
         if(newState == '0'){
-            newState = '1';
+            newState = 'ON';
         } else {
-            newState = '0';
+            newState = 'OFF';
         }
         console.log(newState);
     // post
