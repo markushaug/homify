@@ -67,6 +67,7 @@ Homify is built using a modular approach so support for other devices or actions
 
 - <a href="https://github.com/markushaug/homify-sonos">```Sonos Plug-in```</a>
 - <a href="https://github.com/markushaug/homify-rfoutlet">```RFOutlet (433 Mhz) Plug-in ```</a>
+- <a href="https://github.com/markushaug/homify-phue">```Hue Plug-in```</a>
 
 ## SETUP
 To install and run this application, you'll need <a href="https://getcomposer.org/">Composer</a> and PHP7 installed on your computer. 
