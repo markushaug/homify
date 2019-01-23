@@ -29,7 +29,7 @@ Route::get('/room/{roomName?}', 'Views\HomeController@room')->name('room');
 Route::get('/room/{roomName?}/edit', 'Views\HomeController@editRoom')->name('editroom');
 
 // Thing Controller
-Route::get('/thing/{thingName}/{channel}/{input?}', 'Thing\ThingController@touch');
+Route::get('/thing/{thingID}/{channel}/{input?}', 'Thing\ThingController@touch');
 Route::post('/thing/create', 'Thing\ThingController@create');
 Route::post('/thing/update', 'Thing\ThingController@update');
 Route::post('/thing/delete', 'Thing\ThingController@delete');

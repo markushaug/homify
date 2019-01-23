@@ -59,16 +59,37 @@ class ThingController extends Controller
         // Concatenate the module's namespace with its binder.
         $classString = 'Modules\\' . $this->meta->binding . '\\Thing\\' . $this->meta->binding;
 
-        // Instantiate the class.
-        $this->thing = new $classString($this->meta);
-
+         // Catch Error Messages from Thing Constructor
+        try {
+            // Instantiate the class.
+            $this->thing = new $classString($this->meta);
+        } catch (\Exception $ex) {
+            return $ex->getMessage();
+        }
+    
         // Send Input
         $this->thing->setInput($this->input);
-    
 
         // Call the Channel/Method of class if the channel exists.
         if ($this->thing->hasChannel($this->thing, $channel) === true) {
-            $this->thing->$channel();
+
+            // Certain Modules create .env variables. For such cases, we repeat the channel execution 2 times
+            $msg = NULL;
+            $retries = 2;
+            for ($try = 0; $try < $retries; $try++) {
+                try {
+                    $this->thing->$channel();
+                } catch (\Exception $ex) {
+                    $msg = $ex->getMessage();
+                    sleep(1);   
+                    continue;
+                }
+                if ($try == $retries) {
+                    return $msg;
+                }
+                break;
+            }
+
             if(!is_null($this->thing->getStatus())){
                 Thing::where('thing', $thingName)
                     ->update(['state' => $this->thing->getStatus()]);
