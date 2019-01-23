@@ -51,14 +51,13 @@ abstract class Thing
     public function getChannels($classObject)
     {
         $class = new \ReflectionClass(get_class($classObject)); // Create Reflection Object
-        $methods = $class->getMethods(\ReflectionMethod::IS_PUBLIC); // Retrieve all methods
+        $methods = $class->getMethods(\ReflectionMethod::IS_PUBLIC); // Retrieve all public methods
         $channels = array(); // Define array
 
         if(sizeof($methods) > 0){ // If > 0 channels have been found
             for($i = 0; $i < sizeof($methods); ++$i){
                 if ($methods[$i]->name != 'getChannels' && $methods[$i]->name != '__construct') {
                     // so we actually removed the helper functions
-                
                     $channels[$i]['name'] = $methods[$i]->name;
                 }
             }
@@ -78,7 +77,7 @@ abstract class Thing
     public function hasChannel($classObject, $channel)
     {
         $channels = $this->getChannels($classObject);
-       
+
         foreach($channels as $c){
             if (strtolower($c['name']) == $channel) {
                 return true;
@@ -96,7 +95,13 @@ abstract class Thing
      */
     public function getStatus()
     {
+        if($this->status == 'ON'){
+            return 1;
+        } elseif ($this->status == 'OFF'){
+            return 0;
+        }
         return $this->status;
+
     }
 
     /**

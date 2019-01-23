@@ -9,6 +9,7 @@ use App\Models\Room;
 use App\Models\Thing;
 use App\Models\Rule;
 
+
 /**
  * Class AutomationController
  */
@@ -85,7 +86,7 @@ class AutomationController extends Controller
     {
         // Collect all Rules
         $rules = Rule::all();
-
+    
         // Create ruleParser
         $ruleParser = new RuleParser();
         $ruleParser->generateJobs($rules);

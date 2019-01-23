@@ -8,7 +8,7 @@ function toggle(thing){
     var newState;
     newState = thing.state;
 
-        if(newState == 'OFF'){
+        if(newState == '0'){
             newState = 'ON';
         } else {
             newState = 'OFF';
