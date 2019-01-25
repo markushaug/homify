@@ -30,16 +30,6 @@ abstract class Thing
     public $channels;
 
     /**
-     * @var $online
-     */
-    private $online;
-
-    /**
-     * @var $offline
-     */
-    private $offline;
-
-    /**
      * @var $status
      */
     private $status;
@@ -50,56 +40,75 @@ abstract class Thing
     private $input;
 
 
-    /**
-     * Get all channels of an Thing
-     *
-     * @param $lo_class
-     * @return array
-     */
-    public function getChannels($lo_class)
-    {
-        $class = new \ReflectionClass(get_class($lo_class));
-        $methods = $class->getMethods(\ReflectionMethod::IS_PUBLIC);
-        $la_channels = [];
 
-        foreach ($methods as $method) {
-            if ($method->name != 'getChannels' && $method->name != '__construct') {
-                $la_channels[]['name'] = $method->name;
+    /**
+     * getChannels
+     * Get all channels of an Thing and return as array
+     * 
+     * @param mixed $classObject
+     * @return void
+     */
+    public function getChannels($classObject)
+    {
+        $class = new \ReflectionClass(get_class($classObject)); // Create Reflection Object
+        $methods = $class->getMethods(\ReflectionMethod::IS_PUBLIC); // Retrieve all public methods
+        $channels = array(); // Define array
+
+        if(sizeof($methods) > 0){ // If > 0 channels have been found
+            for($i = 0; $i < sizeof($methods); ++$i){
+                if ($methods[$i]->name != 'getChannels' && $methods[$i]->name != '__construct') {
+                    // so we actually removed the helper functions
+                    $channels[$i]['name'] = $methods[$i]->name;
+                }
             }
         }
-        return $la_channels;
+        return $channels;
     }
 
+
     /**
+     * hasChannel
      * Check if an Thing has the requested channel
-     *
-     * @param $lo_class
-     * @param $lv_channel
-     * @return bool
+     * 
+     * @param mixed $classObject
+     * @param mixed $channel
+     * @return void
      */
-    public function hasChannel($lo_class, $lv_channel)
+    public function hasChannel($classObject, $channel)
     {
+        $channels = $this->getChannels($classObject);
 
-        $channels = $this->getChannels($lo_class);
-
-        foreach ($channels as $channel) {
-            if ($channel['name'] == $lv_channel) {
+        foreach($channels as $c){
+            if (strtolower($c['name']) == $channel) {
                 return true;
             }
         }
+
         return false;
     }
 
+    
     /**
-     * @return mixed
+     * getStatus
+     *
+     * @return void
      */
     public function getStatus()
     {
+        if($this->status == 'ON'){
+            return 1;
+        } elseif ($this->status == 'OFF'){
+            return 0;
+        }
         return $this->status;
+
     }
 
     /**
-     * @param $lv_status
+     * setStatus
+     *
+     * @param mixed $lv_status
+     * @return void
      */
     public function setStatus($lv_status)
     {

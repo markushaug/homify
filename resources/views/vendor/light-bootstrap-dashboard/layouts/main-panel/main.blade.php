@@ -13,11 +13,41 @@
       <div class="collapse navbar-collapse">
 
         <ul class="nav navbar-nav navbar-left">
-        <li>
+        <li>@unless(\Route::current()->getName() == 'automation')
             <a href="#myModal" data-toggle="modal">
               <!-- Item to trigger modal -->
               <p>Add Thing</p>
             </a>
+          </li>
+          <li>
+            @if (\Route::current()->getName() == 'editroom') 
+           <a href="{{ '/room/'.$currentRoom->room.'' }}">
+              Save Things
+            </a>
+            @else
+
+            <a href="{{ '/room/'.$currentRoom->room.'/edit' }}">
+              Edit Things
+            </a>
+            @endif
+            @endunless
+
+            @if(\Route::current()->getName() == 'automation')
+            <li>
+              <a href="#myModal" data-toggle="modal">
+                <!-- Item to trigger modal -->
+                <p>Add Rule</p>
+              </a>
+            </li>
+            <li>
+                <form id="generateEventListener-form" action="{{ url('/automation/generate') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                  </form>
+                  <a href="#" onclick="event.preventDefault();document.getElementById('generateEventListener-form').submit();">
+                    <p>Generate Jobs</p>
+                  </a>
+              </li>
+            @endif
           </li>
         </ul>
 

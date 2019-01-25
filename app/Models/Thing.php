@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Sat, 03 Feb 2018 11:33:55 +0000.
+ * Date: Tue, 06 Feb 2018 18:03:38 +0000.
  */
 
 namespace App\Models;
@@ -21,10 +21,10 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $default_off
  * @property string $protocol
  * @property string $ip
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
  * @property string $state
  * @property int $room_id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * 
  * @property \App\Models\Room $room
  *

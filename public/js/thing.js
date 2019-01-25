@@ -8,7 +8,7 @@ function toggle(thing){
     var newState;
     newState = thing.state;
 
-        if(newState == 'OFF'){
+        if(newState == '0'){
             newState = 'ON';
         } else {
             newState = 'OFF';
@@ -30,4 +30,13 @@ function toggle(thing){
         }
     });
 
+}
+
+function toggleEditModal(thing){
+    $('#editModal').modal('show');
+    $('input[name="thingID"]').val(thing.id);
+    $('input[name="json"]').val(null);
+    $('input[name="thingname"]').val(thing.thing);
+    $('input[name="room"]').val(thing.room);
+    $('input[name="binding"]').val(thing.binding);
 }

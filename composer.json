@@ -6,13 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "atnic/laravel-light-bootstrap-dashboard": "^0.2.1",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-         "nwidart/laravel-modules": "^2.6",
-        "atnic/laravel-light-bootstrap-dashboard": "^0.2.1",
-        "markushaug/homify-module-installer": "dev-master"
-       
+        "markushaug/homify-module-installer": "1.0",
+        "nwidart/laravel-modules": "^2.6",
+        "sqmk/phue": "^1.7"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -55,6 +55,7 @@
         ]
     },
     "config": {
+        "minimum-stability": "~0.1*",
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
