@@ -20,7 +20,7 @@
     
     
     <li class="active-pro">
-      <a href="#addRoomModal" data-toggle="modal">
+      <a href="#">
         <i class="pe-7s-plus"></i>
         <p>Add Room</p>
       </a>
