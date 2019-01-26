@@ -147,14 +147,14 @@ class ThingController extends Controller
         if (is_null($request->json)) {
             $validator = \Validator::make($request->all(), [
                 'thingID' => 'required|exists:things,id',
-                'thingname' => 'required|unique:things,thing|max:191',
+               // 'thingname' => 'required|unique:things,thing|max:191',
                 'binding' => 'required',
                 'room' => 'exists:rooms,id'
             ])->validate();
         } else {
             $validator = \Validator::make($request->all(), [
                 'thingID' => 'required|exists:things,id',
-                'thingname' => 'required|unique:things,thing|max:191',
+               // 'thingname' => 'required|unique:things,thing|max:191',
                 'binding' => 'required',
                 'room' => 'exists:rooms,id',
                 'json' => 'sometimes|json'

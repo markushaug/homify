@@ -33,10 +33,11 @@ function toggle(thing){
 }
 
 function toggleEditModal(thing){
+    console.log(thing);
     $('#editModal').modal('show');
     $('input[name="thingID"]').val(thing.id);
-    $('input[name="json"]').val(null);
+    $('input[name="json"]').val(thing.json);
     $('input[name="thingname"]').val(thing.thing);
-    $('input[name="room"]').val(thing.room);
+    $('input[name="room"]').val(thing.roomid);
     $('input[name="binding"]').val(thing.binding);
 }
