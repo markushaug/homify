@@ -14,7 +14,7 @@
       @show
     </nav>
     <p class="copyright pull-right">
-      &copy; {{ date('Y') . '  '}} <a href="https://www.haugmarkus.de/">Markus Haug</a> 
+      &copy; {{ date('Y') . '  '}} <a href="https://www.haugmarkus.de/">Markus Haug</a>  - Built for a better home
     </p>
   </div>
 </footer>
