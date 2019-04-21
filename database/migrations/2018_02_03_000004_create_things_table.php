@@ -19,11 +19,11 @@ class CreateThingsTable extends Migration
             $table->string('thingType');
             $table->string('binding');
             $table->string('password')->nullable();
-            $table->string('default_on');
-            $table->string('default_off');
-            $table->string('protocol');
+            $table->string('default_on')->nullable();
+            $table->string('default_off')->nullable();
+            $table->string('protocol')->nullable();
             $table->string('ip')->nullable();
-            $table->string('state');
+            $table->string('state')->nullable();
             $table->integer('room_id')->unsigned();
             $table->timestamps();
 

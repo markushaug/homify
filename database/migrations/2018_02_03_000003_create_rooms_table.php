@@ -17,8 +17,8 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->string('room',191);
             $table->string('roomName',191)->unique();
-            $table->string('description');
-            $table->timestamps();
+            $table->string('description')->nullable();
+            $table->timestamps()->nullable();
         });
     }
 
