@@ -62,6 +62,7 @@ abstract class Thing
                 }
             }
         }
+        unset($class);
         return $channels;
     }
 

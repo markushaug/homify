@@ -41,6 +41,8 @@ class ThingController extends Controller
      */
     public function touch($thingName, $channel, $input = null)
     {
+    
+
         // Set input if it's not NULL
         if (!is_null($input)) {
             $this->input = $input;

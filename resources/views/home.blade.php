@@ -20,6 +20,19 @@
             </div>
             <div class="Bar">
                 <a title="{{ $thing->status }}" class="Status" title="Status"></a>
+               @php
+               try {
+                    // Instantiate the class.
+                    $classString = '\\Modules\\' . $thing->binding . '\\Thing\\' . $thing->binding;
+                    $lo_thing = new $classString($thing);
+                    if($lo_thing instanceof \App\Things\ifSlidable) {
+                        echo '<input id="slide" type="range" min="1" max="100" step="1" value="10" onchange="updateSlider({{ $thing }},this.value)">';
+                    }
+                    unset($lo_thing);
+                } catch (\Exception $ex) {
+
+                }
+                @endphp
             </div>
         </li>
 
@@ -27,3 +40,4 @@
     </ul>
 </div>
 @endsection
+

@@ -41,3 +41,25 @@ function toggleEditModal(thing){
     $('input[name="room"]').val(thing.roomid);
     $('input[name="binding"]').val(thing.binding);
 }
+
+function updateSlider(thing, slideAmount) {
+    var sliderDiv = document.getElementById("sliderAmount");
+   // sliderDiv.innerHTML = slideAmount;
+
+
+    // post
+    $.ajax({
+        method: "GET",
+        url: "/thing/" + thing + "/input/" + slideAmount,
+        data: {
+           "_token": getCsrf(),
+        },
+        success: function(data){
+           //window.location.reload();
+           console.log(data);
+        },
+        error: function(data){
+           console.log(data);
+        }
+    });
+}

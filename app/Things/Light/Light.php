@@ -9,7 +9,7 @@ use App\Things\Thing;
  * Class Light
  * @package App\Things\Light
  */
-abstract class Light extends Thing
+abstract class Light extends Thing implements \App\Things\ifSlidable
 {
 
     /**
