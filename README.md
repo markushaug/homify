@@ -117,8 +117,7 @@ Each Rule has the following structure:
 	},
 	"then": {
         /*
-        <EXECUTION_BLOCK1> and
-        <EXECUTION_BLOCK2>
+        <EXECUTION_BLOCK1>
         */
 	}
 }
