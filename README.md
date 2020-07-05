@@ -98,7 +98,7 @@ I highly recommend to use nginx or lighttp. Apache2 is using too much CPU and RA
 
 
 ## RULES
-Homify supports rules to automate your home. You can create an rule via Homifys web interface.
+Homify supports rules to automate your home. You can create a rule via Homifys web interface.
 
 ### Features
 - Define multiple rules for one thing.<br>
@@ -123,7 +123,7 @@ Each Rule has the following structure:
 }
 ```
 ### Example
-Below is an example of a rule with a time-controlled event wich triggers an channel of the defined thing.
+Below is an example of a rule with a time-controlled event wich triggers a channel of the defined thing.
 ```json
 {
 	"rule": "goodEvening",
@@ -140,7 +140,7 @@ Below is an example of a rule with a time-controlled event wich triggers an chan
 ```
 
 ## HTTP-API
-Homify provides an http-api to acces your things.
+Homify provides a http-api to acces your things.
 You can use the following HTTP-GET Request to access your things:
 
 - ```https://<server_ip>/thing/<thing_name>/<channel>```
@@ -155,10 +155,10 @@ For example:
 - Cron-Jobs for Time-triggered rules
 
 ## PLUG-IN DEVELOPMENT
-Each Plug-in inherits from an Thing-Type (```Light```, ```Switcher```, ```Speaker```, etc.). Each Thing-Type inherits from the abstract thing class. So each thing has the required functions.
+Each Plug-in inherits from a Thing-Type (```Light```, ```Switch```, ```Speaker```, etc.). Each Thing-Type inherits from the abstract thing class. So each thing has the required functions.
 
-If you are creating an plug-in for homify, you have to inherit from an Thing-Type. Or you create an additional thing-type.
-Each Thing needs an ```<Thing>.php```, ```Create<Thing>.php``` and an ```Update<Thing>.php``` File. You can take on of the existing Plug-ins as template.
+If you are creating a plug-in for homify, you have to inherit from a Thing-Type. Or you create an additional thing-type.
+Each Thing needs a ```<Thing>.php```, ```Create<Thing>.php``` and a ```Update<Thing>.php``` File. You can take on of the existing Plug-ins as template.
 
 ![ThingClass](https://i.imgur.com/2E75QX0.png)
 
