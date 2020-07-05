@@ -26,7 +26,7 @@
   </a>
 </p>
 
-[![Dashboard](https://i.imgur.com/YwK44H2.png)](https://github.com/markushaug/homify)
+[![Dashboard](https://imgur.com/IZxdit2.png)](https://github.com/markushaug/homify)
 
 
 ## Table of content
@@ -160,7 +160,7 @@ Each Plug-in inherits from a Thing-Type (```Light```, ```Switch```, ```Speaker``
 If you are creating a plug-in for homify, you have to inherit from a Thing-Type. Or you create an additional thing-type.
 Each Thing needs a ```<Thing>.php```, ```Create<Thing>.php``` and a ```Update<Thing>.php``` File. You can take on of the existing Plug-ins as template.
 
-![ThingClass](https://i.imgur.com/2E75QX0.png)
+![ThingClass](https://imgur.com/vONo1m5.png)
 
 ## FAQ / CONTACT / TROUBLESHOOT
 If you run into issues while using Homify or during development of a component, please use one of the following options:
